@@ -20,7 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-WP_CLI::add_command( 'google-site-kit auth', __NAMESPACE__ . '\Authentication_CLI_Command' );
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	WP_CLI::add_command( 'google-site-kit auth', __NAMESPACE__ . '\Authentication_CLI_Command' );
+}
 
 /**
  * Site Kit Authentication CLI Command

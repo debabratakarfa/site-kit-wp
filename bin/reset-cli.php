@@ -18,7 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-WP_CLI::add_command( 'google-site-kit reset', __NAMESPACE__ . '\reset' );
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	WP_CLI::add_command( 'google-site-kit reset', __NAMESPACE__ . '\reset' );
+}
 
 /**
  * Resets Site Kit Settings and Data
